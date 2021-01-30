@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>CookGuide</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">CookGuide</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/all_recipes">All Recipes</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Category
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/bengali_recipes">Bengali</a>
+                    <a class="dropdown-item" href="/north_indian_recipes">North Indian</a>
+                    <a class="dropdown-item" href="/south_indian_recipes">South Indian</a>
+                    <a class="dropdown-item" href="/maharashtrian_recipes">Maharashtrian</a>
+                    <a class="dropdown-item" href="/rajasthani_recipes">Rajasthani</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Others  </a>
+                  </div>
+                </li>
+                <% if(currentUser){ %>
+                  <% if(currentUser.username == "rohitd3476@gmail.com"){ %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/admin">Admin Panel</a>
+                    </li>
+                  <% } %> 
+                <% } %> 
+              </ul>
+
+              <% if(!currentUser){ %>
+                <div class="nav-item my-0 mr-1">
+                  <ul class="navbar-nav">
+                      <a class="nav-link" href="/login"><i class="fa fa-sign-in fa-lg"></i> Login</a>
+                  </ul>
+                </div>
+                <div class="nav-item mr-0">
+                  <ul class="navbar-nav">
+                      <a class="nav-link" href="/register"><i class="fa fa-user-plus fa-lg"></i> Sign Up</a>
+                  </ul>
+                </div>
+              <% } else { %>
+                <div class="nav-item my-0 mr-1">
+                  <ul class="navbar-nav">
+                      <a class="nav-link" href="#"> Signed In As <%= currentUser.username %></a>
+                  </ul>
+                </div>
+                <div class="nav-item mr-0">
+                  <ul class="navbar-nav">
+                      <a class="nav-link" href="/logout"> Logout<i class="fa fa-sign-in fa-lg"></i></a>
+                  </ul>
+                </div>
+              <% } %> 
+            </div>
+          </nav>
+
+          <div class="container">
+            <% if(error && error.length > 0){ %>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <%= error %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </div>
+            <% } %>
+            <% if(success && success.length > 0){ %>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <%= success %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </div>
+            <% } %>
+        </div>

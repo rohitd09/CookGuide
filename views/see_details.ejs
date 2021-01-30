@@ -1,0 +1,22 @@
+<%- include("./partials/header.ejs") %>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 col-xs-12">
+        <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <h1 class="card-title"><%= recipe.name %></h1>
+          </div>
+          <img src="/uploads/<%= recipe.image %>" class="card-img-top" alt="<%= recipe.show_name %>'s Image'">
+          <div class="card-body">
+            <p class="card-text"><strong>Type:</strong> <%= recipe.type %></p>
+            <p class="card-text"><strong>Description:</strong> <%= recipe.description %></p>
+            <p class="card-text"><strong>Ingredients: <%= recipe.ingredients %></strong></p>
+            <h5 class="card-text"><strong>Method</strong></h5>
+            <pre class="card-text"><%= recipe.method %></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<%- include("./partials/footer.ejs") %>

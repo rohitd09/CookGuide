@@ -1,0 +1,38 @@
+footer {
+    padding: 7% 15%;
+    background-color: #fff89a;
+    color: rgb(0, 0, 0);
+    width: 100%;
+  }
+  
+  .footer-anchor {
+    margin: 20px 10px;
+    color: rgb(2, 0, 0);
+    text-align: center;
+}
+  
+footer p {
+    padding-top: 10px;
+}
+  
+.center{
+    text-align: center;
+}
+
+.landing-page-image{
+    background-image: url("../food-image.jpg");
+    background-repeat: no-repeat;
+}
+
+.landing-page-image .white-sheet{
+    background-color: rgba(255, 248, 176, 0.85);
+}
+
+.landing-page-image .welcome-message{
+    color: #ff3636;
+    text-align: center;
+}
+
+.all_recipes{
+    background-color: rgba(255, 248, 176, 0.85);
+}

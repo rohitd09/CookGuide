@@ -1,0 +1,27 @@
+<%- include("./partials/header.ejs") %> 
+
+<div class="jumbotron landing-page-image">
+    <div class="white-sheet">
+        <h1 class="welcome-message">Welcome to CookGuide</h1>
+        <p class="welcome-message">The ultimate guide to most tastiest food you can cook</p>
+    </div>
+</div>
+<div class="container">
+    <center><h3>Some of Our Specialities</h3></center>
+    <div class="row">
+        <% recipe.forEach((rec)=>{ %>
+            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                <div class="card-deck">
+                    <div class="card" style="width: 18rem;">
+                        <a href="/see_details/<%= rec._id %>"><img class="card-img-top" src="./uploads/<%= rec.image %>" alt="<%= rec.name %> cap" height="250px"></a>
+                        <div class="card-body">
+                        <a href="/see_details/<%= rec._id %>"><p class="card-text"><%= rec.name %></p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<%- include("./partials/footer.ejs") %> 
